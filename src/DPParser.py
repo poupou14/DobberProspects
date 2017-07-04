@@ -60,7 +60,10 @@ class DPParser():
 				url.close()
 				currentPlayer_g = DPDataFormat.listPlayer[playerName_l]['Name']
 				myDPParserSummary.html = filter(onlyascii, myDPParserSummary.html)
-				myDPParserSummary.feed(myDPParserSummary.html)	
+				myDPParserSummary.feed(myDPParserSummary.html)
+				#f = open("html.txt", "w")
+				#f.write(myDPParserSummary.html)
+				#f.close()
 				DPDataFormat.listPlayer[playerName_l]['html'] = hfPlayerUrl_l
 			except IOError:
 				print "%s not readable" % hfPlayerUrl_l 
@@ -222,8 +225,10 @@ class DPParserSummary(HTMLParser):
 		return self.__nextPage	
 
 	def handle_starttag(self, tag, attrs):
+		print "handle starttag :%s" % tag
 		if tag == "tbody" :
 			self.__getTbody = True
+			print "tbody found"
 		elif tag == "p" and len(attrs) >= 1 and self.__nextNameAndPos < 2 :
 			if attrs[0][0].lower() == "align" and attrs[0][1].lower()=="center" and self.__nextNameAndPos == 0: 
 				self.__nextNameAndPos = 1
