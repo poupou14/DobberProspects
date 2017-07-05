@@ -6,9 +6,9 @@ from DPParser import DPParser
 def main():
 	myDP = DPParser()
 #	myDPWriter = DPWriter("../INPUT/DP_Players.xls")
-	sourceFile_l = "/home/poupou/Development/DobberProspects/INPUT/Draft-2017.xls"
+	sourceFile_l = "/home/poulnais//Developpement/DobberProspects/INPUT/TEST-2017.xls"
 
-	targetFile_l = "/home/poupou/Development/DobberProspects/OUTPUT/Draft-2017-out.xls"
+	targetFile_l = "/home/poulnais//Developpement/DobberProspects/OUTPUT/TEST-2017-out.xls"
 	myDP.readDP(sourceFile_l, targetFile_l)
 
 main()
